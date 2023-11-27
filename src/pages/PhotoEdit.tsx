@@ -2,6 +2,7 @@ import imglyRemoveBackground from "@imgly/background-removal"
 import html2canvas from "html2canvas";
 import { useState, useRef, useEffect } from "react";
 import {ring} from "ldrs"
+import Header from "../components/Header";
 
 
 // Default values shown
@@ -25,16 +26,21 @@ const colorButtons = [
     "bg-[#B29E7B]",
     "bg-cyan-500",
     "bg-[#6F9CEB]",
+    "bg-[#F49F0A]",
     "bg-gradient-to-br from-purple-500 to-pink-500",
-    "bg-[#F49F0A]",
-    "bg-[#F49F0A]",
-    "bg-[#F49F0A]",
     "bg-gradient-to-br from-cyan-500 to-blue-500",
+    "bg-[url('./mountain.jpeg')]",
+    "bg-[url('./marble.jpeg')]",
+    "bg-[url('./wavy.jpeg')]",
+    "bg-[url('./brick.jpeg')]",
+    "bg-[url('./leaf.jpeg')]",
+    "bg-[url('./mount2.jpeg')]",
+    "bg-[url('./blob.jpeg')]",
+    "bg-none",
 ]
 
 useEffect(()=>{
     downloadHeadshots();
-    console.log(downloadURL.length)
 },[imgURL, color])
 
 const cleanImg = () => {
@@ -62,10 +68,8 @@ const downloadHeadshots = async () => {
 
 return(
     <div className="flex flex-col">
-        <div className="bg-black p-4 text-white">
-            <h1 className="font-bold text-2xl">HeadShots.XYZ</h1>
-        </div>
-        <div className="h-screen flex flex-col md:flex-row items-center overflow-y-scroll">
+        <Header />
+        <div className="h-screen flex flex-col md:flex-row items-center">
             <div className="flex flex-col w-full md:w-[500px] h-full bg-[#3C3C3C] p-5 gap-5">
                 <h2 className="text-white text-xl font-bold">Upload a Picture</h2>
                 <input 
@@ -77,10 +81,28 @@ return(
                     id="file-upload" 
                     type="file" 
                 />
+                <p className="text-center text-xl font-bold text-white">or</p>
+                <input 
+                className="p-2 bg-white border-2 rounded-xl"
+                type="text"
+                placeholder="Upload from URL"
+                onChange={(e)=>setImg({data:e.target.value, fileName:e.target.value})}
+                >
+                </input>
                 <h2 className="text-white text-xl font-bold">Pick Your Background</h2>
                 <div className="grid grid-cols-5 items-center gap-5">
                     {colorButtons.map((color)=>{
-                        const buttonStyling = color + " rounded-[100px] w-[50px] h-[50px]"
+                        let buttonStyling = color + " rounded-[100px] w-[50px] h-[50px]"
+                        if(color == "bg-none"){
+                            buttonStyling = "bg-[url('./320bg.jpg')] rounded-[100px] w-[50px] h-[50px]"
+                            return(
+                                <button 
+                                onClick={()=>setDownloadURL(imgURL)}
+                                className={buttonStyling}>
+                                </button>
+
+                            )
+                        }
                         return(
                             <button 
                             onClick={()=>setColor(color)}
