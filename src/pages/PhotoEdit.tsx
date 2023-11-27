@@ -94,7 +94,7 @@ return(
                     {colorButtons.map((color)=>{
                         let buttonStyling = color + " rounded-[100px] w-[50px] h-[50px]"
                         if(color == "bg-none"){
-                            buttonStyling = "bg-[url('./320bg.jpg')] rounded-[100px] w-[50px] h-[50px]"
+                            buttonStyling = "bg-[url('/320bg.jpg')] rounded-[100px] w-[50px] h-[50px]"
                             return(
                                 <button 
                                 onClick={()=>setDownloadURL(imgURL)}
