@@ -22,21 +22,21 @@ const elementRef = useRef<HTMLImageElement>(null);
 ring.register()
 
 const colorButtons = [
-    "bg-[#222]",
-    "bg-[#B29E7B]",
-    "bg-cyan-500",
-    "bg-[#6F9CEB]",
-    "bg-[#F49F0A]",
-    "bg-gradient-to-br from-purple-500 to-pink-500",
-    "bg-gradient-to-br from-cyan-500 to-blue-500",
-    "bg-[url('/mountain.jpg')]",
-    "bg-[url('/marble.jpg')]",
-    "bg-[url('/wavy.jpg')]",
-    "bg-[url('/brick.jpg')]",
-    "bg-[url('/leaf.jpg')]",
-    "bg-[url('/mount2.jpg')]",
-    "bg-[url('/blob.jpg')]",
-    "bg-none",
+    "bg-[url('/abhishek-tiwari.webp')]",
+    "bg-[url('/alexander-ant.webp')]",
+    "bg-[url('/andrey-k.webp')]",
+    "bg-[url('/don-kaveen.webp')]",
+    "bg-[url('/eugene-golovesov1.webp')]",
+    "bg-[url('/eugene-golovesov2.webp')]",
+    "bg-[url('/eugene-golovesov3.webp')]",
+    "bg-[url('/eugene-golovesov4.webp')]",
+    "bg-[url('/francesco-ungaro.webp')]",
+    "bg-[url('/laura-vinck.webp')]",
+    "bg-[url('/limi-change.webp')]",
+    "bg-[url('/omid-armin.webp')]",
+    "bg-[url('/pawel-czerwinski.webp')]",
+    "bg-[url('/weiye-tan.webp')]",
+    "bg-[url('/yared-lopez.webp')]",
 ]
 
 useEffect(()=>{
@@ -92,17 +92,7 @@ return(
                 <h2 className="text-white text-xl font-bold">Pick Your Background</h2>
                 <div className="grid grid-cols-5 items-center gap-5">
                     {colorButtons.map((color)=>{
-                        let buttonStyling = color + " rounded-[100px] w-[50px] h-[50px]"
-                        if(color == "bg-none"){
-                            buttonStyling = "bg-[url('/320bg.jpg')] rounded-[100px] w-[50px] h-[50px]"
-                            return(
-                                <button 
-                                onClick={()=>setDownloadURL(imgURL)}
-                                className={buttonStyling}>
-                                </button>
-
-                            )
-                        }
+                        let buttonStyling = color + " rounded-[100px] w-[50px] h-[50px] border-solid border-white focus:border-2"
                         return(
                             <button 
                             onClick={()=>setColor(color)}
