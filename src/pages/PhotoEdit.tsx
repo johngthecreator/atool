@@ -2,7 +2,6 @@ import imglyRemoveBackground from "@imgly/background-removal"
 import html2canvas from "html2canvas";
 import { useState, useRef, useEffect } from "react";
 import {ring} from "ldrs"
-import Header from "../components/Header";
 
 
 // Default values shown
@@ -14,30 +13,30 @@ interface ImageData {
 
 export default function PhotoEdit(){
 const [img, setImg] = useState<ImageData>();
-const [color, setColor] = useState<string>("bg-[#222]");
+const [color, ] = useState<string>("bg-[#222]");
 const [imgURL, setImgURL] = useState<string>("");
 const [downloadURL, setDownloadURL] = useState<string>("");
 const [isLoading, setIsLoading] = useState<boolean|null>(null);
 const elementRef = useRef<HTMLImageElement>(null);
 ring.register()
 
-const colorButtons = [
-    "bg-[url('/abhishek-tiwari.webp')]",
-    "bg-[url('/alexander-ant.webp')]",
-    "bg-[url('/andrey-k.webp')]",
-    "bg-[url('/don-kaveen.webp')]",
-    "bg-[url('/eugene-golovesov1.webp')]",
-    "bg-[url('/eugene-golovesov2.webp')]",
-    "bg-[url('/eugene-golovesov3.webp')]",
-    "bg-[url('/eugene-golovesov4.webp')]",
-    "bg-[url('/francesco-ungaro.webp')]",
-    "bg-[url('/laura-vinck.webp')]",
-    "bg-[url('/limi-change.webp')]",
-    "bg-[url('/omid-armin.webp')]",
-    "bg-[url('/pawel-czerwinski.webp')]",
-    "bg-[url('/weiye-tan.webp')]",
-    "bg-[url('/yared-lopez.webp')]",
-]
+// const colorButtons = [
+//     "bg-[url('/abhishek-tiwari.webp')]",
+//     "bg-[url('/alexander-ant.webp')]",
+//     "bg-[url('/andrey-k.webp')]",
+//     "bg-[url('/don-kaveen.webp')]",
+//     "bg-[url('/eugene-golovesov1.webp')]",
+//     "bg-[url('/eugene-golovesov2.webp')]",
+//     "bg-[url('/eugene-golovesov3.webp')]",
+//     "bg-[url('/eugene-golovesov4.webp')]",
+//     "bg-[url('/francesco-ungaro.webp')]",
+//     "bg-[url('/laura-vinck.webp')]",
+//     "bg-[url('/limi-change.webp')]",
+//     "bg-[url('/omid-armin.webp')]",
+//     "bg-[url('/pawel-czerwinski.webp')]",
+//     "bg-[url('/weiye-tan.webp')]",
+//     "bg-[url('/yared-lopez.webp')]",
+// ]
 
 useEffect(()=>{
     downloadHeadshots();
